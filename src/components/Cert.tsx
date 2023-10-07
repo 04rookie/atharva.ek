@@ -6,9 +6,9 @@ export default function Cert() {
     <div className="h-[100vh] w-[100vw] flex flex-col items-center justify-center bg-white snap-center">
       <motion.div
         className="p-4"
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ opacity: { duration: 2 }, x: { duration: 2 } }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ opacity: { duration: 2 }, y: { duration: 2 } }}
       >
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Certificate & Courses

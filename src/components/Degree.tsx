@@ -11,9 +11,9 @@ export default function Degree(props: {
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ opacity: { duration: 2 }, x: { duration: 2 } }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ opacity: { duration: 2 }, y: { duration: 2 } }}
       className=" p-4 mt-4 bg-stone-100"
     >
       <div>

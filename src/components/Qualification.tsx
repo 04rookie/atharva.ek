@@ -11,9 +11,9 @@ export default function Qualification() {
         <motion.h1
           // onViewportEnter={() => console.log("ENTERED")}
           // onViewportLeave={() => console.log("LEFT")}
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ opacity: { duration: 2 }, x: { duration: 2 } }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ opacity: { duration: 2 }, y: { duration: 2 } }}
           className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
         >
           Qualifications
