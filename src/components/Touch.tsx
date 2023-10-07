@@ -1,6 +1,6 @@
+"use client"
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
-import { Mail, Download, Linkedin, Github, FileText } from "lucide-react";
+import { Linkedin, Github, FileText } from "lucide-react";
 import Link from "next/link";
 export default function Touch() {
   return (
