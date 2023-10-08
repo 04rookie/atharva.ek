@@ -47,7 +47,7 @@ export default function IntroComponent() {
         }}
         exit={{ display: "none" }}
       >
-        My name is Atharva Jadhav, I am a <strong>developer</strong> from
+        I am Atharva Jadhav, a <strong>developer</strong> from
         Mumbai, India.
       </motion.h1>
       {/* </div> */}
