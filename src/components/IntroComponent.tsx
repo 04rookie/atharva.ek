@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
-const PFP = require("../img/avatar.JPG");
 
 export default function IntroComponent() {
   return (
@@ -29,11 +28,12 @@ export default function IntroComponent() {
         className="flex flex-col justify-center items-center"
       >
         <Image
-          src={PFP}
-          alt="my pfp"
+          src="/img/avatar.JPG"
+          alt="Atharva Jadhav profile picture"
           height={200}
           width={200}
           style={{ borderRadius: 100 }}
+          priority
         />
       </motion.div>
       <motion.h1
