@@ -55,7 +55,7 @@ export default function Touch() {
               </li>
               <li className="mt-2">
                 <Link
-                  href="https://drive.google.com/file/d/1bBT9acVI6jFqBqYQgOPHDxeJ6o3b1iP5/view?usp=sharing"
+                  href="/img/atharva_ln_resume.pdf"
                   rel="noopener noreferrer"
                   target="_blank"
                   className=""
