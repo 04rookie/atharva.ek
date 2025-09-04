@@ -5,7 +5,8 @@ import { ExternalLink } from "lucide-react";
 export default function Degree(props: {
   degreeName: string;
   university: string;
-  cgpa: number;
+  cgpa?: number;
+  gpa?: number;
   transcript: string;
   date: string;
 }) {
@@ -22,7 +23,7 @@ export default function Degree(props: {
         <h3>{props.university}</h3>
         <div className="flex flex-row justify-between">
           <h3>
-            <b>CGPA:</b> {props.cgpa}
+            <b>{props.gpa ? 'GPA:' : 'CGPA:'}</b> {props.gpa || props.cgpa}
           </h3>
           <h3>
             <b>Year:</b> {props.date}

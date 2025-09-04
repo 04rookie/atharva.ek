@@ -21,7 +21,7 @@ export default function Qualification() {
         <Degree
           degreeName="Master of Science in Computer Science Engineering"
           university="University at Buffalo"
-          cgpa={3.81}
+          gpa={3.81}
           transcript="/img/atharva_ub_ms_transcript.pdf"
           date="2024-2026"
         />
