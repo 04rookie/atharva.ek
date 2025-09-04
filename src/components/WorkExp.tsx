@@ -43,20 +43,16 @@ const workExperiences = [
 
 export default function WorkExp() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   const nextExperience = () => {
-    setDirection(1); // Going forward (right to left)
     setCurrentIndex((prev) => (prev + 1) % workExperiences.length);
   };
 
   const prevExperience = () => {
-    setDirection(-1); // Going backward (left to right)
     setCurrentIndex((prev) => (prev - 1 + workExperiences.length) % workExperiences.length);
   };
 
   const goToExperience = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   };
 
@@ -76,18 +72,18 @@ export default function WorkExp() {
           {/* Navigation Buttons */}
           <button
             onClick={prevExperience}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
             aria-label="Previous experience"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
           
           <button
             onClick={nextExperience}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
             aria-label="Next experience"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
 
           {/* Experience Card */}
@@ -95,9 +91,9 @@ export default function WorkExp() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, x: direction > 0 ? 300 : -300 }}
+                initial={{ opacity: 0, x: 300 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -300 : 300 }}
+                exit={{ opacity: 0, x: -300 }}
                 transition={{ duration: 0.3 }}
                 className="bg-stone-100 p-6 rounded-lg mx-8"
               >

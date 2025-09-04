@@ -2,6 +2,7 @@ import IntroComponent from "./IntroComponent";
 import Qualification from "./Qualification";
 import Gap from "./Gap";
 import WorkExp from "./WorkExp";
+import Research from "./Research";
 import Project from "./Project";
 import Cert from "./Cert";
 import Touch from "./Touch";
@@ -15,6 +16,8 @@ export default function Container() {
         <Qualification />
         <Gap />
         <WorkExp />
+        <Gap />
+        <Research />
         <Gap />
         <Project />
         <Gap />
