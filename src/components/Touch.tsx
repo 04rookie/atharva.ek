@@ -18,7 +18,7 @@ export default function Touch() {
           <h3 className="mt-2">
             <ul className="list-disc list-inside px-4">
               <li className="">
-                <b>Phone: </b> +91 97689 39904
+                <b>Phone: </b> +1 716 295 3960
               </li>
               <li className="mt-2">
                 <b>Email: </b> atharva.ek@gmail.com
