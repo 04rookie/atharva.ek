@@ -19,18 +19,25 @@ export default function Qualification() {
           Qualifications
         </motion.h1>
         <Degree
-          degreeName="Bachelor of Computer Application"
-          university="Symbiosis Institute of Computer Studies & Research"
-          cgpa={7.93}
-          transcript="https://drive.google.com/file/d/1km-evwkxhvKs82T-HjZuDXyGLo_iM9NQ/view?usp=sharing"
-          date="2017-2020"
+          degreeName="Master of Science in Computer Science Engineering"
+          university="University at Buffalo"
+          cgpa={3.81}
+          transcript="/img/atharva_ub_ms_transcript.pdf"
+          date="2024-2026"
         />
         <Degree
           degreeName="Master of Science in Computer Application"
           university="Symbiosis Institute of Computer Studies & Research"
           cgpa={8.83}
-          transcript="https://drive.google.com/file/d/1oCJoaCmtz4ep-xX55XxakaqN-bM6I8je/view?usp=sharing"
+          transcript="/img/atharva_mca_transcript.pdf"
           date="2020-2022"
+        />
+        <Degree
+          degreeName="Bachelor of Computer Application"
+          university="Symbiosis Institute of Computer Studies & Research"
+          cgpa={7.93}
+          transcript="/img/atharva_bca_transcript.pdf"
+          date="2017-2020"
         />
       </div>
     </div>
