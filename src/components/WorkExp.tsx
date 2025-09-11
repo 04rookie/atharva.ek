@@ -1,5 +1,5 @@
 "use client"
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -87,16 +87,8 @@ export default function WorkExp() {
           </button>
 
           {/* Experience Card */}
-          <div className="relative overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 300 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -300 }}
-                transition={{ duration: 0.3 }}
-                className="bg-stone-100 p-6 rounded-lg mx-8"
-              >
+          <div className="relative">
+            <div className="bg-stone-100 p-6 rounded-lg mx-8">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h2 className="font-medium text-xl">
@@ -120,8 +112,7 @@ export default function WorkExp() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-            </AnimatePresence>
+            </div>
           </div>
 
           {/* Dots Indicator */}
