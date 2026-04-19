@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Automation (SumoRL) | Atharva Vikas Jadhav</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 top-0">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-indigo-600 font-semibold hover:text-indigo-800 transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-12 px-4 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-sm font-bold text-indigo-600 tracking-wider uppercase">Project Deep Dive</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6 leading-tight">Traffic light automation using Reinforcement Learning to facilitate emergency vehicles</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Designing an automated traffic signal control system that dynamically adjusts traffic lights based on real traffic flow, with a focused priority on minimizing wait times for emergency vehicles.
+            </p>
+            <div class="flex justify-center gap-4 mt-8 flex-wrap">
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Reinforcement Learning</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">SumoRL</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Python</span>
+            </div>
+            
+            <div class="flex justify-center gap-6 mt-8">
+                <a href="https://github.com/rishi1134/rl-final" target="_blank" class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-semibold"><i class="fab fa-github mr-2"></i> View Code & Model</a>
+                <a href="https://arxiv.org/abs/1905.04716" target="_blank" class="px-6 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-semibold"><i class="fas fa-file-alt mr-2"></i> Base Paper</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto space-y-16">
+            
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">Overview</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    The main idea is to reduce the overall wait time for emergency vehicles traveling from one destination to another. To achieve this task, we used Reinforcement Learning to train a traffic signal controller in a simulated environment (SUMO-RL). We trained the agent with various algorithms (SARSA, Q-Learning, DQN, Double DQN, and A2C) and compared their performance.
+                </p>
+                <img src="img/rl1.png" alt="RL Environment" class="w-full max-w-3xl mx-auto mt-8 rounded-xl shadow-sm border border-gray-200">
+            </div>
+            
+            <div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-8 border-b pb-2 border-gray-200">Algorithm Comparison</h3>
+                
+                <div class="space-y-12">
+                    <!-- Fixed TL -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Fixed TL Results</h4>
+                            <p class="text-gray-700">The traffic light follows a static program with a fixed cycle: 42 seconds green for one direction (likely North-South based on connections), 2 seconds yellow, 42 seconds green for the other direction, and 2 seconds yellow.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-2">
+                            <video controls class="w-full rounded shadow-sm" title="Fixed">
+                                <source src="videos/fixed.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <!-- SARSA -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1 bg-gray-100 rounded-lg p-2">
+                            <video controls class="w-full rounded shadow-sm" title="SARSA">
+                                <source src="videos/sarsa.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">SARSA Results</h4>
+                            <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm">
+                                <li>Since the max queue length for the environment = 20, the state space can get really big. To address this, we quantized the queue length vector into 4 regions: <code>[0-5 (Low 1), 5-10 (Low 2), 10-15 (High 1), 15-20 (High 2)]</code>.</li>
+                                <li>Phase and Emergency vehicle lane was also changed to cardinal numbers.</li>
+                                <li>The new state space size became <code>[0-3, 0-3, 0-3, 0-3, 0-3, 0-4] = 5120</code>.</li>
+                                <li>Trained for 200 episodes with epsilon decay and discount factor of 0.99.</li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-400 text-red-800 text-sm">
+                                <strong>Result:</strong> Performed better than the fixed network, but the TL logic was heavily imbalanced toward one lane and the model failed to converge.
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <!-- Q-Learning -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Q-Learning Results</h4>
+                            <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm">
+                                <li>Followed a similar state space design as SARSA.</li>
+                                <li>The agent was trained for 100 episodes with epsilon decay and a discount factor of 0.9.</li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-green-50 border-l-4 border-green-400 text-green-800 text-sm">
+                                <strong>Result:</strong> The agent performed better than SARSA in terms of wait time and was able to solve for at least one of the lanes completely.
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-2">
+                            <video controls class="w-full rounded shadow-sm" title="QL">
+                                <source src="videos/qlearning.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <!-- DQN -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1 bg-gray-100 rounded-lg p-2">
+                            <video controls class="w-full rounded shadow-sm" title="DQN">
+                                <source src="videos/dqn.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">DQN Results</h4>
+                            <ul class="list-disc list-outside ml-5 text-gray-700 space-y-1 text-sm">
+                                <li><strong>Observation:</strong> Normalized queue lengths of each lane + one-hot-encoded phases + emergency vehicles boolean value (0 or 1).</li>
+                                <li><strong>Action:</strong> 0 to stay in current phase, 1 to go to the next phase.</li>
+                                <li><strong>Reward:</strong> <code>-1 * max(n_t, w_t)</code> or sum of queue lengths where emergency vehicles exist.</li>
+                                <li><strong>Buffer size:</strong> 500 | <strong>Batch size:</strong> 32</li>
+                                <li><strong>Episodes:</strong> 200 | <strong>Learning Rate:</strong> 0.01</li>
+                                <li><strong>Discount factor:</strong> 0.99</li>
+                                <li><strong>Network:</strong> 3 layers with 128 neurons, 12 input size, 2 output.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <!-- DDQN -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-3">Double DQN (DDQN) Results</h4>
+                            <ul class="list-disc list-outside ml-5 text-gray-700 space-y-1 text-sm">
+                                <li><strong>Observation:</strong> Normalized queue lengths of each lane + one-hot-encoded phases + emergency vehicles boolean value (0 or 1).</li>
+                                <li><strong>Action:</strong> 0 to stay in current phase, 1 to go to the next phase.</li>
+                                <li><strong>Reward:</strong> <code>-1 * max(n_t, w_t)</code> or sum of queue lengths where emergency vehicles exist.</li>
+                                <li><strong>Buffer size:</strong> 500 | <strong>Batch size:</strong> 32</li>
+                                <li><strong>Episodes:</strong> 200 | <strong>Learning Rate:</strong> 0.01</li>
+                                <li><strong>Discount factor:</strong> 0.99</li>
+                                <li><strong>Network:</strong> 3 layers with 128 neurons, 12 input size, 2 output.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-2">
+                            <video controls class="w-full rounded shadow-sm" title="DDQN">
+                                <source src="videos/ddqn.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Key Observations & Reward Hacking -->
+            <div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-8 border-b pb-2 border-gray-200">Key Observations</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-4">
+                        <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 mb-2">Reward Shaping</h4>
+                            <p class="text-indigo-800 text-sm leading-relaxed">Reward shaping was key. Only using the summation of queue length was not enough; the model began gaming the rewards by minimizing length for one lane while keeping the other lane full.</p>
+                        </div>
+                        <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 mb-2">Phase Simplification</h4>
+                            <p class="text-indigo-800 text-sm leading-relaxed">Simplifying phases helped significantly. Granular control on phases led to higher convergence times, and often it is unrealistic to keep only one lane open at a time.</p>
+                        </div>
+                        <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 mb-2">Episode Lengths</h4>
+                            <p class="text-indigo-800 text-sm leading-relaxed">We trained the model on shorter episode lengths to emphasize quicker model updates and then tested it on longer episodes. This showed us the fastest convergence.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Reward Hacking Video -->
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3 text-center">Reward Hacking in Action</h4>
+                        <div class="bg-gray-900 rounded-lg p-2 shadow-lg">
+                            <video controls class="w-full rounded" title="Reward Hacking">
+                                <source src="videos/reward_hacking.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-3 italic">Notice how the model learns to minimize the penalty by letting 1 lane wait indefinitely while keeping the other open.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10 text-center mt-12">
+        <p class="text-gray-400 text-sm">© 2024 Atharva Vikas Jadhav. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
