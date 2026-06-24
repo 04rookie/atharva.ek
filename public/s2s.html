@@ -28,60 +28,102 @@
             <span class="text-sm font-bold text-indigo-600 tracking-wider uppercase">Project Deep Dive</span>
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6 leading-tight">Caribbean Spanish Speech-to-Speech Pipeline</h1>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Developing a real-time, speech-to-speech pipeline to help nursing and pharmacy students practice and learn colloquial Caribbean Spanish, mitigating critical communication barriers in clinical settings.
+                An end-to-end, real-time speech-to-speech system leveraging WebRTC and fine-tuned LLM/TTS architectures to train healthcare students in colloquial Puerto Rican Spanish.
             </p>
             <div class="flex justify-center gap-4 mt-8 flex-wrap">
                 <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Speech-to-Speech</span>
-                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">TTS Fine-tuning</span>
-                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">LLM</span>
-                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">LiveKit</span>
-                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Python</span>
-                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">PyTorch</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Coqui XTTS-v2</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">Gemma Optimization</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">LiveKit / WebRTC</span>
+                <span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold">OpenStack Cloud</span>
             </div>
             
             <div class="flex justify-center gap-6 mt-8">
-                <a href="https://ub-es-pr-livekit-frontend-beta-v1.vercel.app/" target="_blank" class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-semibold"><i class="fas fa-external-link-alt mr-2"></i> View Deployment</a>
+                <a href="https://ub-es-pr-livekit-frontend-beta-v1.vercel.app/" target="_blank" class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-semibold"><i class="fas fa-external-link-alt mr-2"></i> View Live Beta</a>
             </div>
-            <p class="text-sm text-gray-500 mt-4">The deployment is for authorized users. Please <a href="mailto:atharva.ek@gmail.com" class="text-indigo-600 hover:underline">email me</a> for access credentials.</p>
+            <div class="max-w-2xl mx-auto mt-4 text-sm text-gray-500 space-y-2">
+                <p><strong>Note:</strong> The live deployment utilizes our active, fine-tuned <strong>Coqui XTTS-v2</strong> pipeline via a quantized inference setup. The companion <strong>Gemma LLM backbone</strong> is currently running on a vanilla baseline while our customized, dialect-tuned reasoning layers undergo strict sociolinguistic evaluation to prevent cultural misrepresentation.</p>
+                <p>The deployment is restricted to authorized users. Please <a href="mailto:atharva.ek@gmail.com" class="text-indigo-600 hover:underline">email me</a> for access credentials.</p>
+            </div>
         </div>
     </header>
 
     <!-- Content -->
     <section class="py-16 px-4">
-        <div class="max-w-5xl mx-auto space-y-16">
+        <div class="max-w-4xl mx-auto space-y-16">
             
+            <!-- Context -->
             <div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">The Problem: Bridging the Dialect Gap</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    In New York, Caribbean Spanish, particularly the Puerto Rican dialect, is widely spoken. This dialect differs significantly from the Standard Spanish taught in universities, leading to frequent miscommunications in critical environments like healthcare. For nursing and pharmacy students, these communication gaps can have severe implications for patient care. Our project aims to mitigate these challenges by creating a tool for students to learn and practice these specific dialectal variations.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">The Problem: The Clinical Dialect Gap</h3>
+                <p class="text-gray-700 mb-4">
+                    In New York, Caribbean Spanish, specifically the colloquial Puerto Rican dialect, is heavily spoken. This vernacular differs significantly in phonology, lexicon, and prosody from the Standard Spanish traditionally taught in academic settings. 
+                </p>
+                <p class="text-gray-700">
+                    For nursing and pharmacy students, this linguistic mismatch creates severe communication barriers during clinical intakes, often leading to medical misinterpretations. Because mainstream Voice AI technologies focus almost exclusively on high-resource, standardized variants, a specialized pipeline was required to help students practice with these rich regional variations.
                 </p>
             </div>
             
+            <!-- Technical Architecture -->
             <div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">Our Solution: A Real-Time Practice Tool</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    We developed a real-time, interactive speech-to-speech (S2S) system that allows students to engage in simulated conversations. The tool listens to the user, generates a contextually appropriate response, and speaks it back in a natural-sounding Caribbean Spanish accent. This provides a safe and effective environment for students to practice their conversational skills at their own pace. The core challenge lies in the scarcity of annotated data and models for low-resource dialects. Our approach focuses on fine-tuning existing state-of-the-art models on the limited available data, leveraging the high-performance computing (HPC) resources at the University at Buffalo.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">The Solution: Real-Time S2S Architecture</h3>
+                <p class="text-gray-700 mb-6">
+                    We built a low-resource dialect adaptation framework that nudges established base models toward colloquial variations. This avoids the unsustainable compute constraints of training foundation models from scratch.
                 </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-microphone text-indigo-600 mr-2"></i>Acoustic Target Alignment (TTS)</h4>
+                        <p class="text-sm text-gray-600">
+                            Utilized audio corpora from the University of Puerto Rico. Built a data staging pipeline performing normalization, diarization, and forced token-to-audio alignment to clean the transcripts. Fine-tuned <strong>Coqui XTTS-v2</strong> on this data, blending it with high-quality general corpora to preserve voice stability and eliminate voice synthesis hallucinations.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-brain text-indigo-600 mr-2"></i>Dialectal Inversion (LLM)</h4>
+                        <p class="text-sm text-gray-600">
+                            To generate colloquial responses from scarce text data, we reversed the traditional translation vector. We took the limited colloquial data available and converted it back to Standard Spanish using commercial LLMs. Training the <strong>Gemma</strong> backbone on this inverse mapping yielded vastly superior contextual generation.
+                        </p>
+                    </div>
+                </div>
             </div>
 
+            <!-- Detailed Contributions -->
             <div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-8 border-b pb-2 border-gray-200">Technical Deep Dive & My Role</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2 border-gray-200">Technical Deep Dive & My Role</h3>
                 <div class="space-y-6 text-gray-700 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                    <p>As the lead on this project, I was responsible for the end-to-end architecture and implementation. My key contributions include:</p>
+                    <p>As the lead engineer on this project, I architected and deployed the entire system. My concrete core contributions include:</p>
                     <ul class="list-disc list-outside ml-5 space-y-4">
                         <li>
-                            <strong>Data Staging and TTS Fine-Tuning:</strong> I built a comprehensive data staging pipeline that included normalization, diarization, forced alignment, and audio chunking. Using this processed data, I fine-tuned the Coqui XTTS-v2 model, successfully mitigating common TTS hallucinations by strategically blending domain-specific and high-quality general corpora.
+                            <strong>End-to-End Data Staging:</strong> Developed modular Python pipelines for raw data ingestion, executing speaker diarization, chunking, and forced transcript alignment to maximize the value of highly constrained regional datasets.
                         </li>
                         <li>
-                            <strong>Iterative Model Improvement:</strong> I conducted iterative post-training of both the Gemma (LLM) and XTTS (TTS) components. This process, guided by evaluation protocols co-designed with linguistics PhD researchers, significantly improved the conversational naturalness and clinical relevance of the system's responses.
+                            <strong>Iterative Post-Training:</strong> Conducted rounds of post-training across the Gemma and XTTS blocks. To guarantee clinical relevance and phonetic validity, I co-designed human-in-the-loop evaluation protocols alongside linguistics PhD researchers.
                         </li>
                         <li>
-                            <strong>Real-Time System Deployment:</strong> I deployed the complete S2S system on an OpenStack private cloud, powered by LiveKit for real-time communication. The architecture serves a streaming pipeline (ASR → LLM → fine-tuned XTTS) through authenticated WebRTC sessions, ensuring low-latency interactions for clinical simulation studies.
+                            <strong>LiveKit & WebRTC Infrastructure:</strong> Shifted the pipeline from a batch request pattern to a streaming architecture. Deployed <strong>LiveKit</strong> on private OpenStack cloud instances to stream the unified <strong>ASR &rarr; LLM &rarr; TTS</strong> pipeline directly through authenticated WebRTC sessions.
                         </li>
                         <li>
-                            <strong>Cross-Disciplinary Collaboration:</strong> I partnered closely with clinical faculty to translate ambiguous educational requirements into a scalable and robust speech-to-speech AI architecture, ensuring the final product met the practical needs of its end-users.
+                            <strong>Cross-Functional Leadership:</strong> Acted as the primary technical bridge, partnering with clinical faculty to translate ambiguous educational simulator requirements into scalable backend API constraints.
                         </li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Future Roadmap -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">Future Roadmap & Next Steps</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 bg-gray-100 rounded-lg">
+                        <h4 class="font-bold text-gray-900 text-base mb-2"><i class="fas fa-bolt text-indigo-600 mr-2"></i>Latency Optimization</h4>
+                        <p class="text-sm text-gray-600">Transitioning the generation layers to fully streaming chunk-by-chunk decoding to reduce Time-to-First-Phoneme (TTFP) under tight WebRTC window limitations.</p>
+                    </div>
+                    <div class="p-5 bg-gray-100 rounded-lg">
+                        <h4 class="font-bold text-gray-900 text-base mb-2"><i class="fas fa-layer-group text-indigo-600 mr-2"></i>Conversational Quality</h4>
+                        <p class="text-sm text-gray-600">Developing conversational data augmentation strategies to model natural turn-taking behavior, regional speech pacing, and authentic dialectal fillers to maximize dialog flow.</p>
+                    </div>
+                    <div class="p-5 bg-gray-100 rounded-lg">
+                        <h4 class="font-bold text-gray-900 text-base mb-2"><i class="fas fa-user-md text-indigo-600 mr-2"></i>Clinical Impact Study</h4>
+                        <p class="text-sm text-gray-600">Co-designing a formal study to measure student fluency gains, tracking conversational confidence and error rates among nursing and pharmacy cohorts.</p>
+                    </div>
                 </div>
             </div>
 
@@ -89,7 +131,7 @@
     </section>
 
     <footer class="bg-gray-900 text-white py-10 text-center mt-12">
-        <p class="text-gray-400 text-sm">© 2024 Atharva Vikas Jadhav. All rights reserved.</p>
+        <p class="text-gray-400 text-sm">© 2026 Atharva Vikas Jadhav. All rights reserved.</p>
     </footer>
 
     <script type="module" src="/analytics.js"></script>
