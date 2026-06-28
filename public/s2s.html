@@ -87,6 +87,346 @@
                 </div>
             </div>
 
+            <!-- Audio Samples -->
+            <div id="model-comparison-section">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-200">Model Output Comparison</h3>
+                <p class="text-gray-700 mb-6">
+                    Compare the baseline model with our fine-tuned version. Standard models are optimized for perfectly paced, textbook Spanish—which fails to prepare healthcare students for real-world patient interactions. Our fine-tuned pipeline deliberately captures the <strong>rapid pacing, authentic phonetic reductions, and distinct prosody of colloquial Puerto Rican Spanish</strong>, forcing students to adapt to the actual rhythm of the street.
+                </p>
+                <div class="space-y-8">
+                    <!-- Sample 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Chacho, si tú supieras lo que pasó ayer en la fiesta, te caes pa' atrás."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_0_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_0_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Yo te lo dije, pero tú nunca haces caso, siempre estás en la tuya."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_1_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_1_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Nos fuimos a chinchorrear el domingo por la montaña y la pasamos súper nítido."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_2_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_2_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Estaba lloviendo a cántaros y tuvimos que meternos pa' adentro corriendo."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_3_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_3_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"¿Tú estás seguro de eso? Porque a mí me dijeron otra cosa totalmente distinta."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_4_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_4_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>                    
+                    <!-- Collapsible section for more samples -->
+                    <div id="more-samples" class="hidden space-y-8">
+                        <!-- Sample 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"¿Qué tú haces? Los muchachos están enfogonados porque llegaste tarde."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_5_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_5_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 7 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Acho, dímelo mano, ¿qué tú crees de ese revolú que se formó anoche en el chinchorreo?"</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_6_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_6_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 8 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Mira, pichéale a eso y no cojas lucha, que al final del día to' se va a arreglar solo."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_7_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_7_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 9 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Tuvimos que bregar con la guagua toda la tarde porque se quedó esbaratá en medio del expreso."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_8_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_8_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 10 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Chacho, yo te lo dije mil veces, pero tú siempre estás en la tuya y no haces caso a na'."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_9_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_9_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 11 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Ese tipo está bien enfogonao porque le cobraron de más y ahora no quiere pagall ni un chavo."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_10_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_10_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 12 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Oye, pásame el mapo pa' limpiar este reguero antes de que llegue la doña y se ponga histérica."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_11_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_11_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 13 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Si tú supieras lo que pasó en la fiesta te quedas con la boca abierta, ¡eso fue algo brutal!"</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_12_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_12_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 14 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Vamos pa' la playa a pasarla nítido, pero llévate el bloqueador pa' que no te quemes to'."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_13_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_13_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 15 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"Había un tapón tan grande que estuve metío en el carro como por dos horas sin podell movelme."</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_14_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_14_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sample 16 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-700 italic mb-4">"¿Tú estás seguro que eso es lo que quieres hacell? Porque después no hay vuelta atrás, ¿oíste?"</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-sm font-semibold text-gray-600 mb-2">Base Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_15_base.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-semibold text-indigo-700 mb-2">Fine-Tuned Model</h5>
+                                <audio controls class="w-full">
+                                    <source src="wavs/sample_15_finetuned.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- Show More/Less Button -->
+                <div id="toggle-samples-container" class="text-center mt-8 hidden">
+                    <button id="toggle-samples-btn" class="px-5 py-2.5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-indigo-700 focus:z-10 focus:ring-4 focus:ring-gray-200 transition-all">
+                        Show More Samples
+                    </button>
+                </div>
+            </div>
+
+
             <!-- Detailed Contributions -->
             <div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2 border-gray-200">Technical Deep Dive & My Role</h3>
@@ -136,5 +476,29 @@
     </footer>
 
     <script type="module" src="/analytics.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('toggle-samples-btn');
+            const moreSamples = document.getElementById('more-samples');
+            const btnContainer = document.getElementById('toggle-samples-container');
+            const samplesSection = document.getElementById('model-comparison-section');
+
+            if (toggleBtn && moreSamples && btnContainer && samplesSection) {
+                // Only show the button if there are samples to hide/show
+                if (moreSamples.children.length > 0) {
+                    btnContainer.classList.remove('hidden');
+                }
+
+                toggleBtn.addEventListener('click', function () {
+                    const isHidden = moreSamples.classList.contains('hidden');
+                    moreSamples.classList.toggle('hidden');
+                    toggleBtn.textContent = isHidden ? 'Show Less Samples' : 'Show More Samples';
+                    if (!isHidden) {
+                        samplesSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
